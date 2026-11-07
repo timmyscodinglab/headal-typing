@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8ee">
+    <title>해달타자 - 즐거운 타자 연습</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="해달타자 처음 화면">
+          <span class="brand-icon" aria-hidden="true">🦦</span>
+          <span>해달타자</span>
+        </a>
+        <span class="header-note">천천히, 즐겁게 연습해요</span>
+      </header>
+
+      <section id="home-screen" class="screen home-screen" aria-labelledby="home-title">
+        <div class="home-copy">
+          <p class="eyebrow">오늘도 한 글자씩</p>
+          <h1 id="home-title">타자 연습,<br>가볍게 시작해요!</h1>
+          <p class="intro">누구나 무료로 연습할 수 있어요.<br>내 속도에 맞춰 즐겁게 쳐 봐요.</p>
+          <button id="start-button" class="button button-primary" type="button">
+            연습 시작하기 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <div class="keyboard-art" aria-hidden="true">
+          <div class="keyboard-row">
+            <span>Q</span><span>W</span><span>E</span><span>R</span><span>T</span><span>Y</span><span>U</span><span>I</span><span>O</span><span>P</span>
+          </div>
+          <div class="keyboard-row keyboard-row-middle">
+            <span>A</span><span>S</span><span>D</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span>
+          </div>
+          <div class="keyboard-row">
+            <span>Z</span><span>X</span><span>C</span><span>V</span><span>B</span><span>N</span><span>M</span><span class="space-key"></span>
+          </div>
+          <span class="sparkle sparkle-one">✦</span>
+          <span class="sparkle sparkle-two">✳</span>
+        </div>
+        <div class="home-tip"><span aria-hidden="true">☀</span> 준비되면 시작 버튼을 눌러 주세요</div>
+      </section>
+
+      <section id="select-screen" class="screen selection-screen" aria-labelledby="select-title" hidden>
+        <button class="text-button back-button" type="button" data-screen="home">← 처음으로</button>
+        <div class="section-heading">
+          <p class="eyebrow">연습 종류 선택</p>
+          <h1 id="select-title">무엇을 연습할까요?</h1>
+          <p class="intro">원하는 연습을 골라 시작해 보세요.</p>
+        </div>
+        <div class="choice-grid">
+          <button class="choice-card" type="button" data-mode="words">
+            <span class="choice-emoji" aria-hidden="true">🔤</span>
+            <span class="choice-title">낱말 연습</span>
+            <span class="choice-description">낱말 50개를 하나씩 입력해요</span>
+            <span class="choice-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="choice-card choice-card-blue" type="button" data-mode="sentences">
+            <span class="choice-emoji" aria-hidden="true">📖</span>
+            <span class="choice-title">장문 연습</span>
+            <span class="choice-description">문장 20개를 차근차근 입력해요</span>
+            <span class="choice-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="practice-screen" class="screen practice-screen" aria-labelledby="practice-title" hidden>
+        <div class="practice-topbar">
+          <button id="change-mode-button" class="text-button" type="button">← 연습 선택</button>
+          <div class="practice-stats">
+            <div class="typing-speed" aria-label="현재 타자 속도">
+              <span id="wpm-value">0</span>
+              <span>WPM</span>
+            </div>
+            <div class="timer" aria-label="경과 시간">
+              <span aria-hidden="true">◷</span>
+              <span id="timer-value">00:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="practice-heading">
+          <p id="practice-mode-label" class="eyebrow"></p>
+          <h1 id="practice-title">화면의 글을 입력해 보세요</h1>
+        </div>
+        <div class="progress-row">
+          <span id="progress-label">1 / 50</span>
+          <div class="progress-track" role="progressbar" aria-label="연습 진행률" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0">
+            <span id="progress-fill"></span>
+          </div>
+        </div>
+        <div id="prompt-card" class="prompt-card">
+          <p id="prompt-text"></p>
+        </div>
+        <form id="answer-form" class="answer-form">
+          <label for="answer-input">여기에 그대로 입력하세요</label>
+          <div class="input-row">
+            <input id="answer-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="feedback" placeholder="글자를 입력하고 Enter를 누르세요">
+            <button class="button button-primary submit-button" type="submit">확인 <span aria-hidden="true">↵</span></button>
+          </div>
+          <p id="feedback" class="feedback" role="status" aria-live="polite">입력을 마치면 Enter를 눌러 주세요.</p>
+        </form>
+      </section>
+
+      <section id="complete-screen" class="screen complete-screen" aria-labelledby="complete-title" hidden>
+        <div class="complete-icon" aria-hidden="true">🎉</div>
+        <p class="eyebrow">연습 완료</p>
+        <h1 id="complete-title">다 끝났다!</h1>
+        <p class="intro">끝까지 연습했어요. 정말 잘했어요!</p>
+        <div class="result-card">
+          <span>걸린 시간</span>
+          <strong id="final-time">00:00</strong>
+        </div>
+        <div class="complete-actions">
+          <button id="retry-button" class="button button-primary" type="button">한 번 더 연습하기</button>
+          <button id="home-button" class="button button-secondary" type="button">처음 화면으로</button>
+        </div>
+      </section>
+      <footer class="site-footer">해달타자 <span aria-hidden="true">·</span> 나만의 속도로 연습해요</footer>
+    </main>
+  </body>
+</html>
